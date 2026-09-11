@@ -1,0 +1,41 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: socialapp
+  datasource:
+    url: jdbc:postgresql://localhost:5432/socialapp
+    driver-class-name: org.postgresql.Driver
+    username: socialapp
+    password: socialapp
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+  servlet:
+    multipart:
+      max-file-size: 25MB
+      max-request-size: 80MB
+
+app:
+  upload-dir: ./uploads
+  cors:
+    allowed-origins: http://localhost:5173
+  jwt:
+    secret: "change-this-super-secret-key-for-production-min-32-bytes!!"
+    expiration-ms: 86400000
+  google:
+
+    maps-api-key: ${GOOGLE_MAPS_API_KEY:AIzaSyAFEL1o8cRKUtW-Qz5KXaHtlpZAMUj72d8}
+  tesseract:
+
+    datapath: "./tessdata"
+    language: eng+ita
+
+logging:
+  level:
+    com.example.socialapp: INFO
